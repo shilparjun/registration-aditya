@@ -1,0 +1,155 @@
+<html>
+<title> Registration Form </title>
+<body>
+
+<link rel="stylesheet" type="text/css" href="Style.css">
+<script type="text/javascript">
+
+
+function deleteFunction() {
+
+    var cboxes = document.getElementsByName('regDelete');
+    var len = cboxes.length;
+    var temp =0;
+
+    for (var i=0; i<len; i++) {
+
+        if (cboxes[i].checked == true)  {
+
+            temp=1;
+        }
+    }
+
+    if(temp==0){
+        alert ("Please select item to delete");
+    }
+}
+
+function addRegistraion() {
+	document.registrationForm.action = "addRegistrationForm.html"
+	document.registrationForm.submit();
+}
+
+</script>
+
+<h1>Submitted successfully <h2>
+
+<form name = "registrationDisplayForm" method= "Post"  action = "AddRegistrationForm.html" onsubmit="onSubmit()" >
+
+<table>
+
+<tr>
+<th>
+    First Name
+</th>
+<th>
+    Last Name
+</th>
+<th>
+    Father Name
+</th>
+<th>
+    Address
+</th>
+<th>
+    Gender
+</th>
+<th>
+    Contact
+</th>
+<th>
+    Delete
+</th>
+</tr>
+<tr>
+<td>
+    <a href="EditRegistrationForm.html">Mallikarjun </a>
+</td>
+<td>
+    Neerugatti
+</td>
+<td>
+    Venkatramana
+</td>
+<td>
+    temple Street,MPL
+</td>
+<td>
+    Male
+</td>
+<td>
+    345345345545
+</td>
+<td>
+    <input type=checkbox value = 1 name="regDelete">
+</td>
+</tr>
+<tr>
+<td>
+    Aditya
+</td>
+<td>
+    Tirumala
+</td>
+<td>
+    Reddappa
+</td>
+<td>
+    RR Street,MPL
+</td>
+<td>
+    Male
+</td>
+<td>
+    776989675566
+</td>
+<td>
+    <input type=checkbox  value= 2 name="regDelete" >
+</td>
+</tr>
+<tr>
+<td>
+    Sangeetha
+</td>
+<td>
+    Ram
+</td>
+<td>
+    Srinivas
+</td>
+<td>
+    Prasanth Nagar,MPL
+</td>
+<td>
+    Femala
+</td>
+<td>
+    76534454564
+</td>
+<td>
+    <input type=checkbox value= 3 name="regDelete">
+</td>
+
+</tr>
+
+<tr>
+    <td colspan=2>
+    <!--    <a href="#" class="button-0" onclick="addRegistraion()">Submit</a> -->
+    <input type= "submit" value = "Add" class="button-0" >
+    </td>
+
+      <td colspan=2 >
+        <input type = "Reset" class="button-0" > 
+        
+    </td>
+        <td colspan=2 align="center">
+        <input type = "button" value = "Delete" class="button-0" onclick="deleteFunction()"> 
+        
+    </td>
+</tr>
+
+
+</table>
+</form>
+</body>
+</html>
