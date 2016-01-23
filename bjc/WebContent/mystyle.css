@@ -1,0 +1,30 @@
+
+
+table, th, td {
+   border: 1px solid black;
+}
+table {
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
+th {
+    text-align: left;
+}
+td {
+    padding: 4px;
+    overflow: visible;
+    border: 1px solid blue;    
+}    
+    
+}
+table, td, th {
+    border: 1px solid blue;
+}
+
+th {
+    background-color: #408080;
+    color: white;
+}

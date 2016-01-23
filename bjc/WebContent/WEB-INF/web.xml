@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+  <display-name>Hello, World Application</display-name>
+  <description>
+	This is a simple web application with a source code organization
+	based on the recommendations of the Application Developer's Guide.
+    </description>
+  
+  
+  
+  <servlet>
+    <description>
+    	</description>
+    <display-name>StudentFeeServlet</display-name>
+    <servlet-name>StudentFeeServlet</servlet-name>
+    <servlet-class>bjc.student.StudentFeeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>
+    	</description>
+    <display-name>StudentMarksServlet</display-name>
+    <servlet-name>StudentMarksServlet</servlet-name>
+    <servlet-class>bjc.student.StudentMarksServlet</servlet-class>
+  </servlet>
+   <servlet>
+    <description>
+    	</description>
+    <display-name>InventoryDisplayServlet</display-name>
+    <servlet-name>InventoryDisplayServlet</servlet-name>
+    <servlet-class>bjc.inventory.InventoryDisplayServlet</servlet-class>
+  </servlet>
+  
+     <servlet>
+    <description>
+    	</description>
+    <display-name>InventoryServelet</display-name>
+    <servlet-name>InventoryServelet</servlet-name>
+    <servlet-class>bjc.inventory.InventoryServelet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>
+    	</description>
+    <display-name>StudentsUpdateServlet</display-name>
+    <servlet-name>StudentsUpdateServlet</servlet-name>
+    <servlet-class>bjc.student.StudentsUpdateServlet</servlet-class>
+  </servlet>
+ 
+  <servlet>
+    <description>
+    	</description>
+    <display-name>StudentSearchServlet</display-name>
+    <servlet-name>StudentSearchServlet</servlet-name>
+    <servlet-class>bjc.student.StudentSearchServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>
+    	</description>
+    <display-name>StudentEditServlet</display-name>
+    <servlet-name>StudentEditServlet</servlet-name>
+    <servlet-class>bjc.student.StudentEditServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <description>
+    	</description>
+    <display-name>EmployeeServlet</display-name>
+    <servlet-name>EmployeeServlet</servlet-name>
+    <servlet-class>bjc.student.EmployeeServlet</servlet-class>
+  </servlet>
+  
+    <servlet>
+    <servlet-name>ProductServlet</servlet-name>
+    <servlet-class>com.dmitrynikol.serlets.ProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductServlet</servlet-name>
+    <url-pattern>/product.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>EmployeeServlet</servlet-name>
+    <url-pattern>/EmployeeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentFeeServlet</servlet-name>
+    <url-pattern>/StudentFeeServlet</url-pattern>
+  </servlet-mapping>  
+  <servlet-mapping>
+    <servlet-name>StudentSearchServlet</servlet-name>
+    <url-pattern>/StudentSearchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InventoryDisplayServlet</servlet-name>
+    <url-pattern>/InventoryDisplayServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InventoryServelet</servlet-name>
+    <url-pattern>/InventoryServelet</url-pattern>
+  </servlet-mapping>  
+  <servlet-mapping>
+    <servlet-name>StudentEditServlet</servlet-name>
+    <url-pattern>/StudentEditServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentsUpdateServlet</servlet-name>
+    <url-pattern>/StudentsUpdateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StudentMarksServlet</servlet-name>
+    <url-pattern>/StudentMarksServlet</url-pattern>
+  </servlet-mapping>
+
+</web-app>
