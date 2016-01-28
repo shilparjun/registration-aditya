@@ -42,6 +42,8 @@ public class AddRegistrationServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+	
 		String group = request.getParameter("group");
 		int year = Integer.parseInt(request.getParameter("year"));
 		String firstName = request.getParameter("firstName");
@@ -52,6 +54,8 @@ public class AddRegistrationServlet extends HttpServlet {
 		String email= request.getParameter("email");;
 		String hobbies= request.getParameter("hobbie");
 		String gender = request.getParameter("gender");
+	
+		
 
 /*		RegistrationBean regBean = new RegistrationBean(id,
 														firstName,
@@ -107,7 +111,8 @@ public class AddRegistrationServlet extends HttpServlet {
              preparedStmt.setInt (11, year);
     	         
    	         RequestDispatcher dispatch = request.getRequestDispatcher("/ViewRegistrationServlet");
-   	         
+ 			 preparedStmt.executeUpdate();
+
    	         dispatch.forward(request, response);
 
              conn.close();

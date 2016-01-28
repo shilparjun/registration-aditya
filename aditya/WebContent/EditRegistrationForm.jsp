@@ -1,78 +1,24 @@
+<%@page import="java.util.*"%>
 <%@page import="com.aditya.bean.RegistrationBean"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <html>
 <title> Registration Form </title>
 <body>
 
 <link rel="stylesheet" type="text/css" href="Style.css">
 
-<script type="text/javascript">
 
-function myFunction() {
+<%
 
-    var firstName = document.registrationForm.firstName.value;
-    var lastName = document.registrationForm.lastName.value;
-    var fatherName = document.registrationForm.fatherName.value;
-    var address = document.registrationForm.address.value;
-    var contact = document.registrationForm.contact.value;
-    var email = document.registrationForm.email.value;
+RegistrationBean regBean = (RegistrationBean)session.getAttribute("registration");
 
-	if(firstName == "" ) {
-		alert ("Please enter first name");
-        return false;
-	} else if(lastName == "" ) {
-        alert ("Please enter last name");
-        return false;
-    } else if(fatherName == "" ) {
-        alert ("Please enter Father name");
-        return false;
-    } else if(address == "" ) {
-        alert ("Please enter Address");
-        return false;
-    }else if(contact == "" ) {
-        alert ("Please enter contact");
-        return false;
-    } else if(email == "" ) {
-        alert ("Please enter email");
-        return false;
-    }
+%>
 
-}
 
-function onSubmit() {
+<form name = "registrationForm" method= "Post" action= "EditRegistrationServlet" >
 
-    var firstName = document.registrationForm.firstName.value;
-    var lastName = document.registrationForm.lastName.value;
-    var fatherName = document.registrationForm.fatherName.value;
-    var address = document.registrationForm.address.value;
-    var contact = document.registrationForm.contact.value;
-    var email = document.registrationForm.email.value;
-
-    if(firstName == "" ) {
-        alert ("Please enter first name");
-        return false;
-    } else if(lastName == "" ) {
-        alert ("Please enter last name");
-        return false;
-    } else if(fatherName == "" ) {
-        alert ("Please enter Father name");
-        return false;
-    } else if(address == "" ) {
-        alert ("Please enter Address");
-        return false;
-    } else if(contact == "" ) {
-        alert ("Please enter contact");
-        return false;
-    }else if(email == "" ) {
-        alert ("Please enter email");
-        return false;
-    } else 
-     document.registrationForm.submit();
-
-}
-
-</script>
-<form name = "registrationForm" method= "Post" onsubmit="onSubmit()" action= "RegistrationDisplay.html">
 
 <table>
 
@@ -82,9 +28,9 @@ function onSubmit() {
     </td>
     <td>
     	<select name = "group" >
-    	  <option value="ECE"> ECE </option>
-    	  <option value="CSC"> CSC </option>
-    	  <option value="CIVIL"> CIVIL </option>
+    	  <option value="ECE" <%=regBean.getGroup().equals("ECE") ? "selected" : ""%>> ECE </option>
+    	  <option value="CSC" <%=regBean.getGroup().equals("CSC") ? "selected" : ""%>> CSC </option>
+    	  <option value="CIVIL" <%=regBean.getGroup().equals("CIVIL") ? "selected" : ""%>> CIVIL </option>
     	</select>
     </td>
 </tr>
@@ -95,10 +41,10 @@ function onSubmit() {
     </td>
     <td>
     	<select name = "year" >
-    	  <option value="1"> 1st Year </option>
-    	  <option value="2"> 2nd Year </option>
-    	  <option value="3"> 3rd Year </option>
-    	  <option value="4"> 4th Year </option>
+    	  <option value="1" <%=regBean.getYear() == 1 ? "selected" : ""%>> 1st Year </option>
+    	  <option value="2" <%=regBean.getYear() == 2 ? "selected" : ""%>> 2nd Year </option>
+    	  <option value="3" <%=regBean.getYear() == 3 ? "selected" : ""%>> 3rd Year </option>
+    	  <option value="4" <%=regBean.getYear() == 4 ? "selected" : ""%>> 4th Year </option>
     	</select>
     </td>
 </tr>
@@ -108,7 +54,8 @@ function onSubmit() {
 	First Name : 
     </td>
     <td>
-    	<input type = "text" name = "firstName" value= "Mallikarjuna">
+        <input type=hidden name = id value = <%=regBean.getId() %>>
+    	<input type = "text" name = "firstName" value= <%=regBean.getFirstName() %>>
     </td>
 </tr>
 
@@ -117,7 +64,7 @@ function onSubmit() {
 	Last Name : 
     </td>
     <td>
-    	<input type = "text" name = "lastName" value= "Neerugatti">
+    	<input type = "text" name = "lastName" value= <%=regBean.getLastName() %>>
     </td>
 </tr>
 
@@ -126,7 +73,7 @@ function onSubmit() {
 	Father Name : 
     </td>
     <td>
-    	<input type = "text" name = "fatherName" value= "Venkataramana">
+    	<input type = "text" name = "fatherName" value= <%=regBean.getFatherName() %>>
     </td>
 </tr>
 
@@ -137,7 +84,7 @@ function onSubmit() {
     </td>
     <td>
     	<Textarea rows="4" cols="50" name = "address">
-    		"Market ,MPL"
+<%=regBean.getAddress() %>
     	</textarea>
     </td>
 </tr>
@@ -148,7 +95,7 @@ function onSubmit() {
 	Contact : 
     </td>
     <td>
-    	<input type = "text" name = "contact" value= "7760978433">
+    	<input type = "text" name = "contact" value= <%=regBean.getContact() %>>
     </td>
 </tr>
 
@@ -157,7 +104,7 @@ function onSubmit() {
 	Email : 
     </td>
     <td>
-    	<input type = "text" name = "email" value= "mreddyn@outlook.com">
+    	<input type = "text" name = "email" value= <%=regBean.getEmail() %>>
     </td>
 </tr>
 
@@ -167,8 +114,8 @@ function onSubmit() {
 	Gender : 
     </td>
     <td>
-    	<input type = "radio" name = "gender" selected >Male
-    	<input type = "radio" name = "gender" >Female
+    	<input type = "radio" name = "gender" value ="Male" <%=regBean.getGender().equals("Male") ? "checked" : ""%> >Male
+    	<input type = "radio" name = "gender" value ="Female" <%=regBean.getGender().equals("Female") ? "checked" : ""%>>Female
     </td>
 </tr>
 
@@ -177,8 +124,8 @@ function onSubmit() {
 	Hobbies : 
     </td>
     <td>
-    	<input type = "checkbox" name = "hobbie"  true>Singing
-    	<input type = "checkbox" name = "hobbie" >Reading
+    	<input type = "checkbox" name = "hobbie"  value = "Singing" <%=regBean.getHobbies().equals("Singing") ? "checked" : ""%>>Singing
+    	<input type = "checkbox" name = "hobbie" value = "Reading" <%=regBean.getHobbies().equals("Reading") ? "checked" : ""%> >Reading
     </td>
 </tr>
 

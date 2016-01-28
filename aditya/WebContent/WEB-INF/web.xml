@@ -19,6 +19,23 @@
     <servlet-name>ViewRegistrationServlet</servlet-name>
     <servlet-class>com.aditya.ViewRegistrationServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>
+    	</description>
+    <display-name>EditRegistrationServlet</display-name>
+    <servlet-name>EditRegistrationServlet</servlet-name>
+    <servlet-class>com.aditya.EditRegistrationServlet</servlet-class>
+  </servlet>  
+  
+  <servlet>
+    <description>
+    	</description>
+    <display-name>DeleteRegistrationServlet</display-name>
+    <servlet-name>DeleteRegistrationServlet</servlet-name>
+    <servlet-class>com.aditya.DeleteRegistrationServlet</servlet-class>
+  </servlet>  
+  
+  
   <servlet-mapping>
     <servlet-name>AddRegistrationServlet</servlet-name>
     <url-pattern>/AddRegistrationServlet</url-pattern>
@@ -27,4 +44,14 @@
     <servlet-name>ViewRegistrationServlet</servlet-name>
     <url-pattern>/ViewRegistrationServlet</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>EditRegistrationServlet</servlet-name>
+    <url-pattern>/EditRegistrationServlet</url-pattern>
+  </servlet-mapping>
+  
+     <servlet-mapping>
+    <servlet-name>DeleteRegistrationServlet</servlet-name>
+    <url-pattern>/DeleteRegistrationServlet</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

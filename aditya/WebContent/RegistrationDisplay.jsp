@@ -10,7 +10,7 @@
 
 function deleteFunction() {
 
-    var cboxes = document.getElementsByName('regDelete');
+    var cboxes = document.getElementsByName('delete');
     var len = cboxes.length;
     var temp =0;
 
@@ -24,7 +24,12 @@ function deleteFunction() {
 
     if(temp==0){
         alert ("Please select item to delete");
+    } else {
+    	
+    	document.registrationDisplayForm.action = "DeleteRegistrationServlet";
+    	document.registrationDisplayForm.submit();
     }
+
 }
 
 function addRegistraion() {
