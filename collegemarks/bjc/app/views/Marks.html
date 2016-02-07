@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="marksApp" ng-app lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+
+     <title>Marks Display</title>
+</head>
+<body>
+
+<div class="container">
+<br/>
+
+<br/>
+    <div class="row">
+        <div class="col-md-2">PageSize:
+            <select ng-model="entryLimit" class="form-control">
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+            </select>
+        </div>
+        <div class="col-md-3">Filter All:
+            <input ng-model="search.$" class="form-control"></label>
+        </div>
+        <div class="col-md-3">Filter By Type:
+            <input ng-model="search.Type" class="form-control"></label>
+        </div>        
+        <div class="col-md-4">
+            <h5>Filtered {{ filtered.length }} of {{ totalItems}} total allmarks</h5>
+        </div>
+
+    
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-12" ng-show="filteredItems > 0">
+            <table class="table table-striped table-bordered">
+            <thead>
+            <th>Section&nbsp;<a ng-click="sort_by('Section');"><i class="glyphicon glyphicon-sort"></i></a></th>
+            <th>Name&nbsp;<a ng-click="sort_by('Name');"><i class="glyphicon glyphicon-sort"></i></a></th>
+            <th>English&nbsp;<a ng-click="sort_by('English');"><i class="glyphicon glyphicon-sort"></i></a></th>
+            <th>M1A/Bot&nbsp;<a ng-click="sort_by('Maths1A');"><i class="glyphicon glyphicon-sort"></i></a></th>
+            <th>M1B/Zoo&nbsp;<a ng-click="sort_by('Maths1B');"><i class="glyphicon glyphicon-sort"></i></a></th>
+            <th>Phy/Econ&nbsp;<a ng-click="sort_by('Physics');"><i class="glyphicon glyphicon-sort"></i></a></th>
+            <th>Che/Com&nbsp;<a ng-click="sort_by('Chemistry');"><i class="glyphicon glyphicon-sort"></i></a></th>
+            <th>Total&nbsp;<a ng-click="sort_by('TotalMarks');"><i class="glyphicon glyphicon-sort"></i></a></th>
+            <th>Exam Type&nbsp;<a ng-click="sort_by('Type');"><i class="glyphicon glyphicon-sort"></i></a></th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in filtered = (list | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                    <td>{{data.Section}}</a></td>
+                    <td>{{data.Name}}</td>
+                    <td><span ng-class="{red: {{data.English}} < '35'}">{{data.English}}</span></td>
+                    <td><span ng-class="{red: {{data.Maths1A+data.Botony}} < '27'}">{{data.Maths1A+data.Botony}}</span></td>
+                    <td><span ng-class="{red: {{data.Maths1B+data.Zoology}} < '27'}">{{data.Maths1B+data.Zoology}}</span></td>
+                    <td><span ng-class="{red: {{data.Physics+data.Economics}} < '21'}">{{data.Physics+data.Economics}}</span></td>
+                    <td><span ng-class="{red: {{data.Chemistry+data.Commerce}} < '21'}">{{data.Chemistry+data.Commerce}}</span></td>                    
+                    <td>{{data.TotalMarks}}</td>
+                    <td>{{data.Type}}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+        <div class="col-md-12" ng-show="filteredItems == 0">
+            <div class="col-md-12">
+                <h4>No students found</h4>
+            </div>
+        </div>
+        <div class="col-md-12" ng-show="filteredItems > 0">    
+            <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;"></div>
+            
+            
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
